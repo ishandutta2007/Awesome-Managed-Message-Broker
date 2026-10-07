@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400">
   <defs>
     <!-- Background Gradients -->
     <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -20,81 +20,61 @@
       <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
 
-    <!-- Background Pattern -->
+    <!-- Background Grid Pattern -->
     <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
       <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#334155" stroke-width="0.6" stroke-opacity="0.25"/>
     </pattern>
-
-    <style>
-      .dash-flow-1 {
-        stroke-dasharray: 8 8;
-        animation: flow1 6s linear infinite;
-      }
-      .dash-flow-2 {
-        stroke-dasharray: 6 6;
-        animation: flow2 8s linear infinite;
-      }
-      .pulse-node-1 {
-        animation: pulse1 3s ease-in-out infinite alternate;
-      }
-      .pulse-node-2 {
-        animation: pulse2 4s ease-in-out infinite alternate;
-      }
-      .live-dot {
-        animation: blink 2s ease-in-out infinite;
-      }
-
-      @keyframes flow1 {
-        from { stroke-dashoffset: 160; }
-        to { stroke-dashoffset: 0; }
-      }
-      @keyframes flow2 {
-        from { stroke-dashoffset: 0; }
-        to { stroke-dashoffset: 140; }
-      }
-      @keyframes pulse1 {
-        from { r: 10px; opacity: 0.3; }
-        to { r: 22px; opacity: 0.8; }
-      }
-      @keyframes pulse2 {
-        from { r: 14px; opacity: 0.4; }
-        to { r: 28px; opacity: 0.85; }
-      }
-      @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.2; }
-      }
-    </style>
   </defs>
 
-  <!-- Base Canvas -->
+  <!-- Base Background -->
   <rect width="1200" height="400" fill="url(#bg-grad)"/>
   <rect width="1200" height="400" fill="url(#grid-pattern)"/>
 
-  <!-- DYNAMIC NETWORK DATA FLOW ANIMATIONS (BACKGROUND LAYER) -->
+  <!-- DYNAMIC NETWORK DATA FLOW LAYER -->
   <g opacity="0.6">
-    <!-- Flow Lines -->
-    <path d="M 80 90 Q 300 20 600 80 T 1120 90" fill="none" stroke="#38bdf8" stroke-width="2" class="dash-flow-1"/>
-    <path d="M 60 320 Q 400 380 750 310 T 1140 320" fill="none" stroke="#818cf8" stroke-width="2" class="dash-flow-2"/>
-    <path d="M 140 200 C 350 110 850 290 1060 200" fill="none" stroke="#c084fc" stroke-width="1.5" stroke-dasharray="10 10" class="dash-flow-1"/>
+    <!-- Flow Line 1 -->
+    <path d="M 80 90 Q 300 20 600 80 T 1120 90" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="8 8">
+      <animate attributeName="stroke-dashoffset" from="160" to="0" dur="6s" repeatCount="indefinite"/>
+    </path>
+    <!-- Flow Line 2 -->
+    <path d="M 60 320 Q 400 380 750 310 T 1140 320" fill="none" stroke="#818cf8" stroke-width="2" stroke-dasharray="6 6">
+      <animate attributeName="stroke-dashoffset" from="0" to="140" dur="8s" repeatCount="indefinite"/>
+    </path>
+    <!-- Flow Line 3 -->
+    <path d="M 140 200 C 350 110 850 290 1060 200" fill="none" stroke="#c084fc" stroke-width="1.5" stroke-dasharray="10 10">
+      <animate attributeName="stroke-dashoffset" from="200" to="0" dur="7s" repeatCount="indefinite"/>
+    </path>
 
-    <!-- Dynamic Pulsing Network Nodes -->
-    <circle cx="150" cy="90" r="14" fill="#38bdf8" class="pulse-node-1"/>
+    <!-- Pulsing Network Node 1 -->
+    <circle cx="150" cy="90" r="14" fill="#38bdf8" opacity="0.4">
+      <animate attributeName="r" values="10;22;10" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+    </circle>
     <circle cx="150" cy="90" r="6" fill="#38bdf8"/>
 
-    <circle cx="1060" cy="200" r="18" fill="#f43f5e" class="pulse-node-2"/>
+    <!-- Pulsing Network Node 2 -->
+    <circle cx="1060" cy="200" r="18" fill="#f43f5e" opacity="0.5">
+      <animate attributeName="r" values="14;28;14" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.85;0.4" dur="4s" repeatCount="indefinite"/>
+    </circle>
     <circle cx="1060" cy="200" r="8" fill="#f43f5e"/>
 
-    <circle cx="900" cy="310" r="12" fill="#34d399" class="pulse-node-1"/>
+    <!-- Pulsing Network Node 3 -->
+    <circle cx="900" cy="310" r="12" fill="#34d399" opacity="0.4">
+      <animate attributeName="r" values="8;18;8" dur="3.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
     <circle cx="900" cy="310" r="5" fill="#34d399"/>
   </g>
 
-  <!-- FOREGROUND LAYER - CRISP & READABLE UI & TEXT -->
+  <!-- FOREGROUND LAYER -->
   <g>
     <!-- Top Status Badge -->
     <g transform="translate(410, 42)">
       <rect x="0" y="0" width="380" height="34" rx="17" fill="url(#card-bg)" stroke="#475569" stroke-width="1.5"/>
-      <circle cx="22" cy="17" r="5" fill="#10b981" class="live-dot"/>
+      <circle cx="22" cy="17" r="5" fill="#10b981">
+        <animate attributeName="opacity" values="1;0.2;1" dur="2s" repeatCount="indefinite"/>
+      </circle>
       <text x="38" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#cbd5e1" letter-spacing="0.6">
         MANAGED MESSAGE BROKER ECOSYSTEM
       </text>
