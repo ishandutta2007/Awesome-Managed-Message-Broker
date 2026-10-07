@@ -71,7 +71,7 @@ This directory categorizes the top commercial cloud-hosted managed broker soluti
 
 ### ⭐ Top Open-Source Messaging Engines (Sorted by Stars)
 
-*All repositories below are sorted descending by GitHub stargazers. Click any star badge to visit the official stargazers directory.*
+*All repositories below are sorted descending by GitHub stargazers. Click any Stars_Badge to visit the official stargazers directory.*
 
 1. **[Redis](https://github.com/redis/redis)** 🔴 [![Stars](https://img.shields.io/github/stars/redis/redis?style=social&color=white)](https://github.com/redis/redis/stargazers)
    - **Stars:** ~76,600+ ⭐ | **License:** BSD-3-Clause / RSALv2 / SSPLv1 📜
@@ -214,7 +214,7 @@ Contributions from the developer and cloud architecture community are very welco
 1. 🍴 **Fork** this repository.
 2. 📝 Update `README.md` with accurate entries following the table or list schema.
 3. 💵 For SaaS entries, verify starting prices, free tier limits, and company revenue/valuation data.
-4. ⭐ For Open-Source entries, include the GitHub stargazers social badge linked to `/stargazers` and maintain descending star count order.
+4. ⭐ For Open-Source entries, include the GitHub stargazers social badge linked to `/stargazers` and maintain descending Stars_Count order.
 5. 📬 Submit a **Pull Request** with a concise summary.
 
 ---
